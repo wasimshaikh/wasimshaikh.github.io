@@ -15,8 +15,8 @@
 <nav class="navbar">
 <div class="nav-container">
 <div class="logo">
-<span class="logo-bracket">&lt;</span>
 <img src="assets/wasim_profile.jpg" alt="Logo" class="logo-img">
+<span class="logo-bracket">&lt;</span>
 W:S
 <span class="logo-bracket">/&gt;</span>
 </div>
@@ -26,6 +26,7 @@ W:S
 <li><a href="#experience">Experience</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#opensource">Open Source</a></li>
+<li><a href="#stats">Statistics</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 <div class="nav-actions">
@@ -35,14 +36,19 @@ W:S
 
 <header class="hero-section">
 <div class="hero-content">
+<div class="hero-text">
 <div class="hero-badge">👨‍💻 Backend Engineer</div>
 <h1 class="hero-title">Wasim Shaikh</h1>
 <h2 class="hero-subtitle">Senior Python Backend Engineer</h2>
-<p class="hero-description">6+ years architecting enterprise BFSI platforms, AI-powered services, and scalable automation systems at scale. Open-source creator with 19,000+ downloads. Specialized in Django, FastAPI, Kubernetes, and compliance-driven delivery.</p>
+<p class="hero-description">6+ years architecting enterprise BFSI platforms, AI-powered services, and scalable automation systems at scale. Open-source creator with <span id="totalDownloadsInline">0+</span> downloads. Specialized in Django, FastAPI, Kubernetes, and compliance-driven delivery.</p>
 <div class="hero-location">📍 Pune, MH, India</div>
 <div class="hero-cta">
 <a href="#contact" class="btn btn-primary">Get in Touch</a>
 <a href="https://github.com/contactshaikhwasim" target="_blank" class="btn btn-secondary">GitHub Profile</a>
+</div>
+</div>
+<div class="hero-visual section-visual">
+<img src="assets/svg/undraw_profile_9xdn.svg" alt="Developer profile illustration">
 </div>
 </div>
 </header>
@@ -71,6 +77,9 @@ W:S
 <p>Containerization with Docker, orchestration with Kubernetes on GKE, CI/CD pipelines, and cloud-native deployment patterns.</p>
 </div>
 </div>
+</div>
+<div class="about-visual section-visual">
+<img src="assets/svg/undraw_business-pitch_h9yw.svg" alt="Business pitch and architecture planning illustration">
 </div>
 </div>
 </section>
@@ -140,6 +149,9 @@ W:S
 <section id="experience" class="experience-section">
 <div class="container">
 <h2>Work Experience</h2>
+<div class="experience-visual section-visual">
+<img src="assets/svg/undraw_tight-deadline_u4hu.svg" alt="Project delivery under deadlines illustration">
+</div>
 <div class="experience-timeline">
 <div class="experience-item" data-skills="Python,Django,DRF,FastAPI,PostgreSQL,Docker,Kubernetes,GKE,LLM APIs,LDAP Auth,BFSI Systems,Compliance">
 <div class="exp-header">
@@ -211,6 +223,9 @@ W:S
 <section id="projects" class="projects-section">
 <div class="container">
 <h2>Featured Projects</h2>
+<div class="projects-visual section-visual">
+<img src="assets/svg/undraw_monitoring-data_twub.svg" alt="Data monitoring and analytics illustration">
+</div>
 <div class="projects-grid">
 <div class="project-card" data-skills="FastAPI,Django,DRF,PostgreSQL,LLM APIs,Redis,Docker,Kubernetes,Python">
 <div class="project-header">
@@ -265,23 +280,30 @@ W:S
 <section id="opensource" class="opensource-section">
 <div class="container">
 <h2>Open Source Contributions</h2>
-<p class="section-intro">Creator of production-ready Python tools used by developers worldwide.</p>
+<p class="section-intro">Creator of production-ready developer tools used by engineers worldwide.</p>
+<div class="opensource-visual section-visual">
+<img src="assets/svg/undraw_code-contribution_8k0x.svg" alt="Open source delivery and completion illustration">
+</div>
 <div class="opensource-grid">
 <div class="opensource-card">
 <div class="os-header">
 <h3>Py Env Studio</h3>
-<a href="https://github.com/contactshaikhwasim/py-env-studio" target="_blank" class="github-link">→ GitHub</a>
 </div>
 <p class="os-description">Desktop application for managing Python virtual environments and dependencies with IDE integration and vulnerability scanning.</p>
 <div class="os-stats">
 <div class="stat">
-<span class="stat-value">6K+</span>
-<span class="stat-label">PyPI Downloads</span>
+<span class="stat-value">PyPI</span>
+<span class="stat-label">Package</span>
 </div>
 <div class="stat">
 <span class="stat-value">⭐</span>
 <span class="stat-label">Active Maintenance</span>
 </div>
+</div>
+<div class="os-download-badge">
+<a href="https://pepy.tech/projects/py-env-studio" target="_blank">
+<img src="https://static.pepy.tech/personalized-badge/py-env-studio?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=BLUE&left_text=downloads" alt="PyPI downloads for py-env-studio">
+</a>
 </div>
 <div class="os-features">
 <span class="feature">Virtual Environment Management</span>
@@ -292,23 +314,33 @@ W:S
 <div class="os-tech">
 <span>Python</span> <span>Tkinter</span> <span>SQLite</span> <span>APIs</span> <span>matplotlib</span> <span>Open Source</span>
 </div>
+<div class="os-links">
+<h4>Links</h4>
+<a href="https://github.com/contactshaikhwasim/py-env-studio" target="_blank">GitHub</a>
+<a href="https://pypi.org/project/py-env-studio/" target="_blank">PyPI</a>
+
+</div>
 </div>
 
 <div class="opensource-card">
 <div class="os-header">
 <h3>Django Boilerplate Generator</h3>
-<a href="https://github.com/contactshaikhwasim/dj-boilerplate-generator" target="_blank" class="github-link">→ GitHub</a>
 </div>
 <p class="os-description">CLI tool for scaffolding production-ready Django project structures with modular templates and multi-environment configuration.</p>
 <div class="os-stats">
 <div class="stat">
-<span class="stat-value">13K+</span>
-<span class="stat-label">PyPI Downloads</span>
+<span class="stat-value">PyPI</span>
+<span class="stat-label">Package</span>
 </div>
 <div class="stat">
 <span class="stat-value">⭐</span>
 <span class="stat-label">Active Maintenance</span>
 </div>
+</div>
+<div class="os-download-badge">
+<a href="https://pepy.tech/projects/dj-boilerplate-generator" target="_blank">
+<img src="https://static.pepy.tech/personalized-badge/dj-boilerplate-generator?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=BLUE&left_text=downloads" alt="PyPI downloads for dj-boilerplate-generator">
+</a>
 </div>
 <div class="os-features">
 <span class="feature">Production-Ready Structure</span>
@@ -319,41 +351,179 @@ W:S
 <div class="os-tech">
 <span>Python</span> <span>Django</span> <span>Jinja2</span> <span>Click</span> <span>PyPI</span>  <span>Open Source</span>
 </div>
+<div class="os-links">
+<h4>Links</h4>
+<a href="https://github.com/contactshaikhwasim/dj-boilerplate-generator" target="_blank">GitHub</a>
+<a href="https://pypi.org/project/dj-boilerplate-generator/" target="_blank">PyPI</a>
+
+</div>
+</div>
+
+<div class="opensource-card">
+<div class="os-header">
+<h3>Focus Mode Guard</h3>
+</div>
+<p class="os-description">Visual Studio Code extension that enforces focus mode by allowing access only to pre-selected files and folders, with guarded confirmation for overrides.</p>
+<div class="os-stats">
+<div class="stat">
+<span class="stat-value">VS Code</span>
+<span class="stat-label">Extension</span>
+</div>
+</div>
+<div class="os-download-badge">
+<a href="https://marketplace.visualstudio.com/items?itemName=WasimShaikh.focus-mode-guard" target="_blank">
+<img src="https://img.shields.io/visual-studio-marketplace/d/WasimShaikh.focus-mode-guard?label=VS%20Code%20downloads&logo=visualstudiocode&color=3b82f6" alt="VS Code Marketplace downloads for focus-mode-guard">
+</a>
+<a href="https://open-vsx.org/extension/wasimshaikh/focus-mode-guard" target="_blank">
+<img src="https://img.shields.io/open-vsx/dt/wasimshaikh/focus-mode-guard?label=Open%20VSX%20downloads&logo=eclipseide&color=3b82f6" alt="Open VSX downloads for focus-mode-guard">
+</a>
+</div>
+<div class="os-features">
+<span class="feature">Focus List Enforcement</span>
+<span class="feature">Modal Confirmation Guard</span>
+<span class="feature">Dynamic File/Folder Override</span>
+<span class="feature">Persistent State & Logs</span>
+</div>
+<div class="os-tech">
+<span>TypeScript</span> <span>VS Code API</span> <span>Extension</span> <span>Productivity</span>
+</div>
+<div class="os-links">
+<h4>Links</h4>
+<a href="https://github.com/contactshaikhwasim/focus-mode-guard" target="_blank">GitHub</a>
+<a href="https://marketplace.visualstudio.com/items?itemName=WasimShaikh.focus-mode-guard" target="_blank">VS Code Market</a>
+<a href="https://open-vsx.org/extension/wasimshaikh/focus-mode-guard" target="_blank">Open VSX Market</a>
+
+</div>
+</div>
+
+<div class="opensource-card">
+<div class="os-header">
+<h3>Django TypeScript API Generator</h3>
+</div>
+<p class="os-description">Zero-dependency Django plugin that auto-generates TypeScript interfaces and JSDoc documentation from Django models with extracted validation constraints.</p>
+<div class="os-stats">
+<div class="stat">
+<span class="stat-value">PyPI</span>
+<span class="stat-label">Package</span>
+</div>
+<div class="stat">
+<span class="stat-value">0 deps</span>
+<span class="stat-label">Zero Dependency</span>
+</div>
+</div>
+<div class="os-download-badge">
+<a href="https://pepy.tech/projects/django-typescript-api" target="_blank">
+<img src="https://static.pepy.tech/personalized-badge/django-typescript-api?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=BLUE&left_text=downloads" alt="PyPI downloads for django-typescript-api">
+</a>
+</div>
+<div class="os-features">
+<span class="feature">Type-Safe Interfaces</span>
+<span class="feature">Auto JSDoc</span>
+<span class="feature">Validation Rule Extraction</span>
+<span class="feature">Django Settings Configurable</span>
+</div>
+<div class="os-tech">
+<span>Python</span> <span>Django</span> <span>TypeScript</span> <span>JSDoc</span> <span>PyPI</span>
+</div>
+<div class="os-links">
+<h4>Links</h4>
+<a href="https://github.com/pyenvstudio/django-typescript-api" target="_blank">GitHub</a>
+<a href="https://pypi.org/project/django-typescript-api/" target="_blank">PyPI</a>
+</div>
+</div>
+
+<div class="opensource-card">
+<div class="os-header">
+<h3>BookMind</h3>
+</div>
+<p class="os-description">Privacy-first Chrome extension that transforms bookmarks into a personal knowledge system by preserving intent, notes, and reading context for better recall.</p>
+<div class="os-stats">
+<div class="stat">
+<span class="stat-value">Chrome</span>
+<span class="stat-label">Extension</span>
+</div>
+<div class="stat">
+<span class="stat-value">AI</span>
+<span class="stat-label">Recall-Focused Search</span>
+</div>
+</div>
+<div class="os-download-badge">
+<a href="https://chromewebstore.google.com/detail/bookmind/olaanmfidpcemcifipeochidcfjnicco" target="_blank">
+<img src="https://img.shields.io/chrome-web-store/users/olaanmfidpcemcifipeochidcfjnicco?label=Chrome%20users&logo=googlechrome&color=3b82f6" alt="Chrome Web Store users for BookMind">
+</a>
+<a href="https://microsoftedge.microsoft.com/addons/detail/bookmind/plfhdliagplhipllacofhnbbigjbeban" target="_blank">
+<img src="https://img.shields.io/microsoft-edge-addons/users/plfhdliagplhipllacofhnbbigjbeban?label=Edge%20users&logo=microsoftedge&color=3b82f6" alt="Microsoft Edge Add-ons users for BookMind">
+</a>
+</div>
+<div class="os-features">
+<span class="feature">Intent-Based Bookmarking</span>
+<span class="feature">Natural Language Search</span>
+<span class="feature">Ask BookMind Recall</span>
+<span class="feature">Resume Reading Position</span>
+</div>
+<div class="os-tech">
+<span>JavaScript</span> <span>Chrome APIs</span> <span>Local-First</span> <span>Search</span> <span>AI</span>
+</div>
+<div class="os-links">
+<h4>Links</h4>
+<a href="https://github.com/contactshaikhwasim/bookmind" target="_blank">Github</a>
+<a href="https://chromewebstore.google.com/detail/bookmind/olaanmfidpcemcifipeochidcfjnicco" target="_blank">Chrome Store</a>
+<a href="https://microsoftedge.microsoft.com/addons/detail/bookmind/plfhdliagplhipllacofhnbbigjbeban" target="_blank">Edge Store</a>
+
+
+
+
+</div>
+</div>
+
+<div class="opensource-card">
+<div class="os-header">
+<h3>sealable</h3>
+</div>
+<p class="os-description">Rust crate for passphrase-protected secret sealing with a versioned payload format, pluggable cryptographic backends, and URL-safe single-string output.</p>
+<div class="os-stats">
+<div class="stat">
+<span class="stat-value">Rust</span>
+<span class="stat-label">Crate</span>
+</div>
+<div class="stat">
+<span class="stat-value">🔐</span>
+<span class="stat-label">Security-First Design</span>
+</div>
+</div>
+<div class="os-download-badge">
+<a href="https://crates.io/crates/sealable" target="_blank">
+<img src="https://img.shields.io/crates/d/sealable?label=crates.io%20downloads&color=3b82f6" alt="Crates.io downloads for sealable">
+</a>
+</div>
+<div class="os-features">
+<span class="feature">Argon2id + AES-256-GCM</span>
+<span class="feature">Versioned Payload Format</span>
+<span class="feature">Pluggable KDF/Cipher/Codec</span>
+<span class="feature">URL-Safe Sealed Strings</span>
+</div>
+<div class="os-tech">
+<span>Rust</span> <span>Argon2id</span> <span>AES-256-GCM</span> <span>Base64Url</span> <span>zeroize</span>
+</div>
+<div class="os-links">
+<h4>Links</h4>
+<a href="https://github.com/contactshaikhwasim/sealable" target="_blank">GitHub</a>
+<a href="https://crates.io/crates/sealable" target="_blank">crates.io</a>
+</div>
 </div>
 </div>
 <div class="os-callout">
-<p><strong>Total Open Source Impact:</strong> 19,000+ PyPI downloads across all projects</p>
+<p><strong>Total Open Source Impact:</strong> <span id="totalDownloadsCallout">0+</span> downloads across all projects</p>
 <p><a href="https://github.com/contactshaikhwasim" target="_blank" class="link">View all projects on GitHub →</a></p>
-</div>
-</section>
-
-<section id="contact" class="contact-section">
-<div class="container">
-<h2>Let's Connect</h2>
-<p class="section-intro">Open to discussing backend architecture, optimization challenges, and collaboration opportunities.</p>
-<div class="contact-grid">
-<div class="contact-item">
-<h3>Email</h3>
-<a href="mailto:contact.shaikh.wasim@gmail.com">contact.shaikh.wasim@gmail.com</a>
-</div>
-<div class="contact-item">
-<h3>Location</h3>
-<p>Pune, MH, India</p>
-</div>
-<div class="contact-item">
-<h3>Profiles</h3>
-<div class="social-links">
-<a href="https://github.com/contactshaikhwasim" target="_blank">GitHub</a>
-<a href="https://linkedin.com/in/contactwasim" target="_blank">LinkedIn</a>
-<a href="https://pypi.org/user/wasim" target="_blank">PyPI</a>
-</div>
-</div>
 </div>
 </section>
 
 <section id="stats" class="stats-section">
 <div class="container">
 <h2>By The Numbers</h2>
+<div class="stats-visual section-visual">
+<img src="assets/svg/undraw_personal-finance_xpqg.svg" alt="Power and performance metrics illustration">
+</div>
 <div class="stats-grid">
 <div class="stat-box">
 <div class="stat-number">6+</div>
@@ -361,8 +531,8 @@ W:S
 <p>Enterprise backend engineering across BFSI, Telecom, and eCommerce</p>
 </div>
 <div class="stat-box">
-<div class="stat-number">19K+</div>
-<div class="stat-title">PyPI Downloads</div>
+<div id="totalDownloadsStat" class="stat-number">0+</div>
+<div class="stat-title">Tool Downloads</div>
 <p>Open source tools trusted by Python developers worldwide</p>
 </div>
 <div class="stat-box">
@@ -387,13 +557,39 @@ W:S
 </div>
 </div>
 </section>
-
+<section id="contact" class="contact-section">
+<div class="container">
+<h2>Let's Connect</h2>
+<p class="section-intro">Open to discussing backend architecture, optimization challenges, and collaboration opportunities.</p>
+<div class="contact-visual section-visual">
+<img src="assets/svg/undraw_business-call_w1gr.svg" alt="Collaboration and positive response illustration">
+</div>
+<div class="contact-grid">
+<div class="contact-item">
+<h3>Email</h3>
+<a href="mailto:contact.shaikh.wasim@gmail.com">contact.shaikh.wasim@gmail.com</a>
+</div>
+<div class="contact-item">
+<h3>Location</h3>
+<p>Pune, MH, India</p>
+</div>
+<div class="contact-item">
+<h3>Profiles</h3>
+<div class="social-links">
+<a href="https://github.com/contactshaikhwasim" target="_blank">GitHub</a>
+<a href="https://linkedin.com/in/contactwasim" target="_blank">LinkedIn</a>
+<a href="https://pypi.org/user/wasim" target="_blank">PyPI</a>
+</div>
+</div>
+</div>
+</section>
 <footer class="footer">
 <div class="container">
 <p>&copy; 2026 Wasim Shaikh.| <a href="https://github.com/contactshaikhwasim" target="_blank">GitHub</a></p>
 </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.2/dist/svg.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

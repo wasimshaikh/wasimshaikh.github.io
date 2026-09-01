@@ -9,6 +9,10 @@
   --accent-light: #60a5fa;
   --success: #10b981;
   --warning: #f59e0b;
+  --space-section-y: 4.5rem;
+  --space-section-x: 2rem;
+  --space-title-bottom: 2.25rem;
+  --space-visual-bottom: 2rem;
 }
 
 * {
@@ -144,12 +148,21 @@ body.light {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: calc(var(--space-section-y) - 0.5rem) var(--space-section-x);
   text-align: center;
 }
 
 .hero-content {
+  width: min(1200px, 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 2rem;
+  align-items: center;
   animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-text {
+  text-align: left;
 }
 
 .hero-badge {
@@ -186,22 +199,66 @@ body.light {
   font-size: 1.1rem;
   color: var(--fg-muted);
   max-width: 700px;
-  margin: 1.5rem auto 2rem;
+  margin: 1.25rem 0 1.5rem;
   line-height: 1.8;
 }
 
 .hero-location {
   font-size: 1rem;
   color: var(--fg-muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero-cta {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+}
+
+.section-visual {
+  margin: 0 auto var(--space-visual-bottom);
+  max-width: 860px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.section-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 24px rgba(15, 23, 42, 0.35));
+  position: relative;
+  z-index: 2;
+  transition: transform 0.45s ease;
+}
+
+.section-visual:hover img {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.hero-visual {
+  margin-bottom: 0;
+}
+
+.hero-visual img {
+  max-height: 360px;
+}
+
+.svg-interactive-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.9;
 }
 
 .btn {
@@ -240,19 +297,20 @@ body.light {
 
 /* About Section */
 .about-section {
-  padding: 5rem 2rem;
+  padding: var(--space-section-y) var(--space-section-x);
 }
 
 .about-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-title-bottom);
   text-align: center;
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
   gap: 3rem;
+  align-items: start;
 }
 
 .about-main .intro-text {
@@ -295,7 +353,7 @@ body.light {
 
 /* Expertise Section */
 .expertise-section {
-  padding: 5rem 2rem;
+  padding: var(--space-section-y) var(--space-section-x);
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -305,7 +363,7 @@ body.light {
 .contact-section h2,
 .stats-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-title-bottom);
   text-align: center;
 }
 
@@ -565,7 +623,7 @@ body.light {
 
 /* Experience Section */
 .experience-section {
-  padding: 5rem 2rem;
+  padding: var(--space-section-y) var(--space-section-x);
 }
 
 .experience-timeline {
@@ -662,7 +720,7 @@ body.light {
 
 /* Projects Section */
 .projects-section {
-  padding: 5rem 2rem;
+  padding: var(--space-section-y) var(--space-section-x);
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -758,7 +816,7 @@ body.light {
 
 /* Open Source Section */
 .opensource-section {
-  padding: 5rem 2rem;
+  padding: var(--space-section-y) var(--space-section-x);
 }
 
 .section-intro {
@@ -766,14 +824,14 @@ body.light {
   color: var(--fg-muted);
   font-size: 1.1rem;
   max-width: 600px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 1.5rem;
 }
 
 .opensource-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.25rem;
 }
 
 .opensource-card {
@@ -850,6 +908,34 @@ body.light {
   margin-bottom: 1.5rem;
 }
 
+.os-download-badge {
+  margin: 0 0 1.25rem;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.03);
+  display: grid;
+  gap: 0.5rem;
+}
+
+.os-download-badge a {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.os-download-badge img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.os-download-badge a + a {
+  margin-top: 0.5rem;
+}
+
 .feature {
   background: rgba(59, 130, 246, 0.1);
   color: var(--accent-light);
@@ -872,6 +958,41 @@ body.light {
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 500;
+}
+
+.os-links {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.os-links h4 {
+  color: var(--fg);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-right: 0.25rem;
+}
+
+.os-links a {
+  color: var(--accent-light);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: rgba(59, 130, 246, 0.08);
+  transition: all 0.3s ease;
+}
+
+.os-links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(59, 130, 246, 0.16);
 }
 
 .os-callout {
@@ -901,7 +1022,7 @@ body.light {
 
 /* Contact Section */
 .contact-section {
-  padding: 5rem 2rem;
+  padding: var(--space-section-y) var(--space-section-x);
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -970,7 +1091,7 @@ body.light {
 
 /* Stats Section */
 .stats-section {
-  padding: 5rem 2rem;
+  padding: var(--space-section-y) var(--space-section-x);
 }
 
 .stats-grid {
@@ -1046,6 +1167,39 @@ body.light {
 
 /* Responsive */
 @media (max-width: 768px) {
+  :root {
+    --space-section-y: 3rem;
+    --space-section-x: 1rem;
+    --space-title-bottom: 1.75rem;
+    --space-visual-bottom: 1.5rem;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-description {
+    margin: 1.5rem auto 2rem;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-visual {
+    margin-bottom: var(--space-visual-bottom);
+    padding: 0.85rem;
+  }
+
   .nav-menu {
     gap: 1rem;
     font-size: 0.9rem;
@@ -1076,7 +1230,7 @@ body.light {
   }
 
   section {
-    padding: 3rem 1rem;
+    padding: var(--space-section-y) var(--space-section-x);
   }
 
   .projects-grid,
