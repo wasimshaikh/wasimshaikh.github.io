@@ -353,3 +353,171 @@ function createMedalPopup(targetSection) {
   
 
 }
+
+function initializeSvgInteractions() {
+  if (typeof window.SVG !== 'function') {
+    return;
+  }
+
+  const visuals = document.querySelectorAll('.section-visual');
+
+  visuals.forEach((visual, index) => {
+    const layer = document.createElement('div');
+    layer.className = 'svg-interactive-layer';
+    visual.appendChild(layer);
+
+    const draw = window.SVG().addTo(layer).size('100%', '100%').viewbox(0, 0, 100, 100);
+    const halo = draw.circle(30).fill('rgba(96,165,250,0.08)').stroke({ color: 'rgba(96,165,250,0.4)', width: 0.6 }).center(50, 50);
+
+    const dots = [
+      draw.circle(2.2).fill('rgba(96,165,250,0.95)').center(20, 72),
+      draw.circle(1.8).fill('rgba(59,130,246,0.9)').center(80, 28),
+      draw.circle(1.5).fill('rgba(147,197,253,0.8)').center(35, 20),
+      draw.circle(2.0).fill('rgba(59,130,246,0.85)').center(68, 82)
+    ];
+
+    const wave = draw.path('M 0 75 Q 25 65 50 75 T 100 75').fill('none').stroke({ color: 'rgba(96,165,250,0.28)', width: 0.8, linecap: 'round' });
+    wave.animate(2600).plot('M 0 70 Q 25 80 50 70 T 100 70').loop(true, true);
+
+    const dotSeeds = dots.map((dot, i) => {
+      const cx = dot.cx();
+      const cy = dot.cy();
+      const phase = i * 0.9 + index * 0.45;
+      return { dot, cx, cy, phase };
+    });
+
+    let rafId = null;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const t = (now - start) / 1000;
+      halo.radius(14 + Math.sin(t * 1.35 + index) * 2.2);
+
+      dotSeeds.forEach((seed) => {
+        const x = seed.cx + Math.sin(t * 0.95 + seed.phase) * 2.8;
+        const y = seed.cy + Math.cos(t * 1.15 + seed.phase) * 2.2;
+        seed.dot.center(x, y);
+      });
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+
+    visual.addEventListener('mousemove', (event) => {
+      const rect = visual.getBoundingClientRect();
+      const xPercent = ((event.clientX - rect.left) / rect.width) * 100;
+      const yPercent = ((event.clientY - rect.top) / rect.height) * 100;
+      halo.animate(200).center(xPercent, yPercent);
+    });
+
+    visual.addEventListener('mouseleave', () => {
+      halo.animate(260).center(50, 50);
+    });
+
+    visual.addEventListener('remove', () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    });
+  });
+}
+
+function parseBadgeNumber(text) {
+  const cleaned = String(text || '').replace(/,/g, '').trim().toLowerCase();
+  const match = cleaned.match(/^(\d+(?:\.\d+)?)([kmb])?$/);
+
+  if (!match) {
+    return 0;
+  }
+
+  const base = Number.parseFloat(match[1]);
+  const suffix = match[2] || '';
+
+  if (!Number.isFinite(base)) {
+    return 0;
+  }
+
+  if (suffix === 'k') {
+    return Math.round(base * 1000);
+  }
+  if (suffix === 'm') {
+    return Math.round(base * 1000000);
+  }
+  if (suffix === 'b') {
+    return Math.round(base * 1000000000);
+  }
+
+  return Math.round(base);
+}
+
+function extractCountFromBadgeSvg(svgText) {
+  try {
+    const doc = new DOMParser().parseFromString(svgText, 'image/svg+xml');
+    const values = Array.from(doc.querySelectorAll('text'))
+      .map((node) => parseBadgeNumber(node.textContent))
+      .filter((value) => value > 0);
+
+    if (values.length === 0) {
+      return 0;
+    }
+
+    return Math.max(...values);
+  } catch {
+    return 0;
+  }
+}
+
+async function fetchBadgeCount(badgeUrl) {
+  try {
+    const response = await fetch(badgeUrl, { cache: 'no-store' });
+    if (!response.ok) {
+      return 0;
+    }
+
+    const svgText = await response.text();
+    return extractCountFromBadgeSvg(svgText);
+  } catch {
+    return 0;
+  }
+}
+
+function formatTotalDownloads(total) {
+  return `${Math.max(0, total).toLocaleString('en-US')}+`;
+}
+
+function applyTotalDownloads(total) {
+  const formatted = formatTotalDownloads(total);
+  const inline = document.getElementById('totalDownloadsInline');
+  const callout = document.getElementById('totalDownloadsCallout');
+  const stat = document.getElementById('totalDownloadsStat');
+
+  if (inline) {
+    inline.textContent = formatted;
+  }
+  if (callout) {
+    callout.textContent = formatted;
+  }
+  if (stat) {
+    stat.textContent = formatted;
+  }
+}
+
+async function updateTotalDownloadsFromBadges() {
+  const badgeUrls = Array.from(document.querySelectorAll('.os-download-badge img'))
+    .map((img) => img.getAttribute('src'))
+    .filter(Boolean);
+
+  if (badgeUrls.length === 0) {
+    applyTotalDownloads(0);
+    return;
+  }
+
+  const uniqueBadgeUrls = Array.from(new Set(badgeUrls));
+  const counts = await Promise.all(uniqueBadgeUrls.map((url) => fetchBadgeCount(url)));
+  const total = counts.reduce((sum, count) => sum + (Number.isFinite(count) ? count : 0), 0);
+  applyTotalDownloads(total);
+}
+
+initializeSvgInteractions();
+void updateTotalDownloadsFromBadges();
