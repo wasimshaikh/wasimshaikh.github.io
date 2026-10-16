@@ -219,7 +219,7 @@ body.light {
 
 .section-visual {
   margin: 0 auto var(--space-visual-bottom);
-  max-width: 860px;
+  max-width: 640px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--card-border);
   border-radius: 16px;
@@ -227,13 +227,17 @@ body.light {
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section-visual img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 280px;
+  max-width: 420px;
+  height: 180px;
+  max-height: 180px;
   object-fit: contain;
   filter: drop-shadow(0 14px 24px rgba(15, 23, 42, 0.35));
   position: relative;
@@ -247,10 +251,6 @@ body.light {
 
 .hero-visual {
   margin-bottom: 0;
-}
-
-.hero-visual img {
-  max-height: 360px;
 }
 
 .svg-interactive-layer {
@@ -680,6 +680,15 @@ body.light {
   margin-bottom: 1rem;
 }
 
+.experience-detail {
+  color: var(--fg-muted);
+  margin: 0.35rem 0;
+}
+
+.experience-detail strong {
+  color: var(--fg);
+}
+
 .highlights-list {
   list-style: none;
   margin: 1rem 0;
@@ -716,6 +725,12 @@ body.light {
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: 500;
+}
+
+.tech-stack .tech-stack-label {
+  background: transparent;
+  color: var(--fg-muted);
+  padding-left: 0;
 }
 
 /* Projects Section */

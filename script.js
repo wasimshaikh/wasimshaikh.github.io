@@ -1,3 +1,45 @@
+// Load content maintained in JSON before binding interactions to its elements.
+const contentResponse = await fetch('data/content.json');
+if (!contentResponse.ok) {
+  throw new Error(`Could not load portfolio content (${contentResponse.status})`);
+}
+const portfolioContent = await contentResponse.json();
+
+const escapeHTML = value => String(value).replace(/[&<>"']/g, character => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+})[character]);
+
+document.getElementById('skillsGrid').innerHTML = portfolioContent.techStack.map(category => `
+  <div class="skill-category">
+    <h3>${escapeHTML(category.category)}</h3>
+    <div class="tags">
+      ${category.skills.map(skill => `<span class="tag clickable" data-skill="${escapeHTML(skill)}">${escapeHTML(skill)}</span>`).join('')}
+    </div>
+  </div>
+`).join('');
+
+document.getElementById('experienceTimeline').innerHTML = portfolioContent.experience.map(job => `
+  <div class="experience-item" data-skills="${escapeHTML(job.skills.join(','))}">
+    <div class="exp-header">
+      <h3>${escapeHTML(job.title)}</h3>
+      <span class="company">${escapeHTML(job.company)}</span>
+      <span class="period">${escapeHTML(job.period)}</span>
+    </div>
+    <div class="exp-content">
+      <p class="role">${escapeHTML(job.role)}</p>
+      <p class="experience-detail"><strong>Project:</strong> ${escapeHTML(job.project)}</p>
+      <p class="experience-detail"><strong>Domain:</strong> ${escapeHTML(job.domain)}</p>
+      <ul class="highlights-list">
+        ${job.highlights.map(highlight => `<li class="highlight-line">${escapeHTML(highlight)}</li>`).join('')}
+      </ul>
+      <div class="tech-stack">
+        <span class="tech-stack-label">Technologies:</span>
+        ${job.techStack.map(skill => `<span>${escapeHTML(skill)}</span>`).join(' ')}
+      </div>
+    </div>
+  </div>
+`).join('');
+
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
 const htmlElement = document.documentElement;
@@ -153,18 +195,22 @@ function highlightExperienceBySkill(skill) {
   const experienceItems = document.querySelectorAll('.experience-item');
   let matchedLines = [];
   
-  // Find ONLY lines that contain the skill text
+  // Match the skill against the experience metadata first. If a matching
+  // role's bullet points do not repeat the technology by name, still animate
+  // its first bullet so the skill click always produces visible feedback.
   experienceItems.forEach(item => {
     const skills = item.getAttribute('data-skills')?.split(',').map(s => s.trim()) || [];
     
     if (skills.includes(skill)) {
       const lines = item.querySelectorAll('.highlight-line');
+      const itemMatches = [];
       lines.forEach(line => {
-        // Only add lines that mention the skill in their text
         if (line.textContent.toLowerCase().includes(skill.toLowerCase())) {
-          matchedLines.push(line);
+          itemMatches.push(line);
         }
       });
+
+      matchedLines.push(...(itemMatches.length ? itemMatches : Array.from(lines).slice(0, 1)));
     }
   });
   
@@ -218,7 +264,7 @@ function animateReadingSequence(lines) {
         document.body.appendChild(tooltip);
         
         let charIndex = 0;
-        const readingSpeed = 50; // Speed of character reading
+        const readingSpeed = 18; // Keep the character highlight responsive
         
         const readInterval = setInterval(() => {
           // Remove previous highlight

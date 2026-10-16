@@ -1,0 +1,64 @@
+{
+  "techStack": [
+    { "category": "Technologies", "skills": ["Python", "Django", "DRF", "REST APIs", "FastAPI", "Scripting", "Pandas", "Asyncio", "Pytest", "JS", "ReactJS", "HTML"] },
+    { "category": "Cloud & DevOps", "skills": ["Docker", "Google Kubernetes Engine", "Google Cloud Platform", "Git", "GitHub Actions", "Jenkins"] },
+    { "category": "Backend Runtime", "skills": ["Gunicorn", "Uvicorn", "Daphne"] },
+    { "category": "Databases", "skills": ["PostgreSQL", "MySQL", "Oracle", "MS SQL", "SQLite"] }
+  ],
+  "experience": [
+    {
+      "title": "Specialist Software Engineer",
+      "company": "LTM (LTIMindtree), Pune",
+      "period": "APR 2025 – SEP 2026",
+      "project": "HSBC",
+      "role": "Python Backend Module Lead",
+      "domain": "Banking, Financial Services, & Insurance Intelligent Automation Systems",
+      "skills": ["Python", "Django", "DRF", "FastAPI", "Pandas", "PostgreSQL", "Docker", "Kubernetes", "GCP", "GKE", "Generative AI", "LLM APIs", "LDAP", "SAST", "CyberFlow"],
+      "highlights": [
+        "Led backend module design, code reviews, debugging, release readiness, and module-level issue resolution.",
+        "Implemented LDAP authentication for secure access.",
+        "Designed workflow modules for rule analytics and rule onboarding.",
+        "Designed and implemented a Generative AI Platform access token distribution service with intelligent caching, reducing token-generation requests by over 95% across 50+ APIs and improving authentication efficiency and platform scalability.",
+        "Developed LLM services in collaboration with AI Engineers for rule pattern analysis, rule building, rule validation, and AI model risk workflows.",
+        "Coordinated with Frontend, QA, Security, DevOps, and business teams for sprint delivery and production support.",
+        "Drove secure coding practices and resolved CyberFlow SAST vulnerabilities for compliance-driven delivery."
+      ],
+      "techStack": ["Python", "Django", "DRF", "FastAPI", "Pandas", "PostgreSQL", "Docker", "Kubernetes", "GCP", "GKE", "Generative AI", "LLM APIs"]
+    },
+    {
+      "title": "Python Developer",
+      "company": "Outworks Pvt Ltd, Pune",
+      "period": "JAN 2022 – FEB 2025",
+      "project": "Kyndryl – Vodafone Idea",
+      "role": "Python Full Stack Developer",
+      "domain": "Networking & Telecom Automation Solutions",
+      "skills": ["Python", "Django", "DRF", "FastAPI", "Pandas", "ReactJS", "TypeScript", "PostgreSQL", "MS SQL", "Oracle", "Docker", "Kubernetes", "GCP", "GKE", "Shell", "PowerShell", "Microservices"],
+      "highlights": [
+        "Built a Privileged Access Management tool with web shell, real-time session handling, audit, and controlled server/device access.",
+        "Delivered SLA, KPI, milestone, and 5+ network automation dashboards covering network node control, MPLS failover, route validation, and bandwidth monitoring for F5 and Cisco devices.",
+        "Developed Remedy-integrated work order and incident automations.",
+        "Automated WebSphere password updates through shims and microservices, reducing manual effort by 70%.",
+        "Built a configurable notification engine for server monitoring and alert workflows.",
+        "Implemented Netcool reporting and SSL digital inventory management.",
+        "Collaborated with operations, infrastructure, and support teams to improve reliability and reduce manual interventions."
+      ],
+      "techStack": ["Python", "Django", "DRF", "FastAPI", "Pandas", "ReactJS", "TypeScript", "PostgreSQL", "MS SQL", "Oracle", "Docker", "Kubernetes", "GCP", "GKE", "Shell", "PowerShell"]
+    },
+    {
+      "title": "Software Developer",
+      "company": "NeSecure Networks Pvt Ltd, Pune",
+      "period": "JAN 2020 – JAN 2022",
+      "project": "Internal and External",
+      "role": "Python Full Stack Developer",
+      "domain": "Telecom, eCommerce and Healthcare",
+      "skills": ["Python", "Django", "DRF", "Pandas", "PostgreSQL", "MySQL", "JavaScript", "HTML", "CSS"],
+      "highlights": [
+        "Created broadband dashboard modules providing real-time insights to optimize sales and service workflows.",
+        "Developed an eCommerce inventory and order management system for product tracking and sales workflows.",
+        "Designed a web application for waterless vehicle wash services with booking and service management.",
+        "Created a medical practice management system covering patient, appointment, and billing workflows."
+      ],
+      "techStack": ["Python", "Django", "DRF", "Pandas", "PostgreSQL", "MySQL", "JavaScript", "HTML", "CSS"]
+    }
+  ]
+}
